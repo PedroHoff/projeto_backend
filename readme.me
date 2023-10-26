@@ -1,0 +1,114 @@
+Eu iniciei o trabalho criando a pasta do projeto com o comando 
+- mkdir projeto_backend - 
+
+para acessar a pasta usei 
+cd projeto_backend 
+
+criei o readme para documentar o projeto
+touch readme.md
+
+para gerenciar os pacotes Node eu usei
+npm Init -y
+
+instalei os pacotes express, nodemon e dotenv com:
+npm i express nodemon dotenv
+
+usei o code . para abrir o VScode
+
+criei o git ignore com
+nano .gitignore
+
+adicionei no gitignore o node modules que nesse caso foi só escrever ali no nano
+
+comecei a criar a estrutura do projeto com os seguintes codigos:
+mkdir src
+touch src/app.js
+touch src/server.js
+mkdir src/controllers
+mkdir src/config
+mkdir src/routes
+
+Por fim eu validei se estava tudo certo e comecei a enviar para o gitHub com
+git Init
+
+depois pediu meu email e nome
+git config --global user.name "nome que esta no github"
+ git config --global user.email "email que esta no github"
+
+
+dei um git status pra conferir se não fiz nada de errado
+
+git add . para adicionar os arquivos no versionamento
+
+depois dei um git commit -m 'estrutura do projeto' pra salvar o projeto.
+
+depois no terminal eu executei o comando pra definir a branch main
+git branch -M main
+
+informei o repositorio que queria enviar os arquivos
+git remote add origin COLAR_URL
+
+e enviei pro github essa bomba
+git push -u origin main
+
+dei um 
+cd ..
+
+depois dei um 
+rm -rf projetoBackend
+
+
+PASSO 2
+
+clonei o projeto com o git clone e a url do projeto
+
+depois dei um cd projeto_backend pra acessar a pasta
+
+pra reinstalar os pacotes eu dei um npm i 
+
+nano .env para criar a raiz do projeto, e dentro eu escrevi PORT = 3008
+
+adicionei no git ignore 
+nano .gitignore
+e também o .env
+
+abri o VSCode com o comando
+code .
+
+criei o env.example com o codigos
+nano .env.example
+
+dentro dele eu escrevi PORT =
+
+E dentro do app.js eu escrevi os seguintes codigos:
+const express = require('express');
+const dotenv = require('dotenv').config();
+const app = express();
+app.set('port', process.env.PORT || 3333);
+module.exports = app;
+
+depois no server.js eu escrevi
+const app = require('./app');
+const port = app.get('port');
+
+app.listen(port, () => {
+    console.log(`Running on port ${ port }!`);
+}); esse código ele testa a API com a função de listen
+
+depois fui para a pasta package.json e substitui o arquivo com "teste" por:
+"start":"nodemon src/server.js" para startar
+
+dei dps um npm run start pra poder rodar o terminal
+
+atualizei o projeto no gitHub com
+git add .
+
+depois salvei o projeto e escrevi um comentário com: 
+git commit -m 'configuração do projeto'
+
+por fim, enviei os arquivos para o github com
+git push
+
+depois deletei com 
+cd ..
+rm -rf projetoBackend
