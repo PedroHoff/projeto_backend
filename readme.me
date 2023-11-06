@@ -112,3 +112,64 @@ git push
 depois deletei com 
 cd ..
 rm -rf projetoBackend
+
+
+PASSO 3 
+
+clonei o projeto copiando a URL dele e dando um git clone (url)
+
+cd projeto_backend para acessar a pasta do projeto
+
+npm i para reinstalar os pacotes da aplicação
+
+em seguida criei as pastas dentro da pasta src:
+mkdir src/routes
+
+criei um arquivo dentro da pasta routes:
+touch src/routes/rotas.js
+
+abri o vscode: code .
+
+dentro do arquivo rotas.js eu escrevi os seguintes códigos:
+
+// Importar o modulo de Router do express
+const { Router } = require('express');
+
+// Instanciar o Router na variável router
+const router = Router();
+
+router.get('/listar', (request, response) => {
+    response.send('Método GET: listar informações');
+});
+router.post('/cadastrar', (request, response) => {
+    response.send('Método POST: salvar informações');
+});
+router.put('/user/:id', (request, response) => {
+    response.send('Método PUT: atualizar informações');
+});
+router.delete('/user/:id', (request, response) => {
+    response.send('Método DELETE: remover informações');
+});
+
+module.exports = router;
+
+após escrever os comandos, agora no app.js eu adicionei:
+const router = require('./routes/rotas');
+pra habilitar as rotas na aplicação
+
+após isso, usei:
+app.use('/api', router);
+
+agora para atualizar o projeto no gitHub eu usei:
+git add .
+
+para salvar eu usei:
+git commit -m 'rotas do projeto'
+
+e para enviar eu enviei com:
+git push
+
+após todos os passos eu dei um cd .. para remover os arquivos da máquina
+
+e depois dei um:
+rm -rf projetoBackend
